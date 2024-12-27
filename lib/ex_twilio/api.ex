@@ -70,7 +70,7 @@ defmodule ExTwilio.Api do
 
     module
     |> Url.build_url(nil, options)
-    |> Api.post!(data, auth_header(options))
+    |> Api.post!(data, auth_header(options), [ssl: [{:versions, [:'tlsv1.2', :'tlsv1.3']}]])
     |> Parser.parse(module)
   end
 
